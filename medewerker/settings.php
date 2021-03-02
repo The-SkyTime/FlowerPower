@@ -71,7 +71,7 @@ session_start();
                     $password = $row['medewerkerpassword'];
 
                     echo "<section class='data-edit' id='edit'>
-                            <form method='post' action='userchanger.php?edit=" . $id . "'>
+                            <form method='post' action='../changer/medewerker/userchanger.php?edit=" . $id . "'>
                                 <h2 class='section__title section__title--changer'>Uw gegevens </h2><br>
                                 <div class='edit'>
                                     <p><input id='text' type='text' value=" . $voornaam . " name='voornaam'></p>";
@@ -87,7 +87,7 @@ session_start();
                                     <p><input id='text' type='text' value=" . $plaats . " name='plaats'></p>
                                     <p><input id='text' type='text' value=" . $telefoon . " name='telefoon'></p>
                                     <p><input id='text' type='text' value=" . $email . " name='email'></p>
-                                    <input type='submit' value='Save' class='btn' name='updateuser'>
+                                    <input type='submit' value='Aanpassen' class='btn' name='updateuser'>
                                 </div>
                             </form>
                         </section>";
@@ -97,7 +97,7 @@ session_start();
                                     <h2 class='section__title section__title--changer'>Change your password </h2><br>
                                     <div class='edit'>
                                         <p><input id='text' type='text' value=" . $password . " name='password'></p>
-                                        <input type='submit' value='Save' class='btn' name='updatepass'>
+                                        <input type='submit' value='Aanpassen' class='btn' name='updatepass'>
                                     </div>
                                 </form>
                             </section>";

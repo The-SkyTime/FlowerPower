@@ -2,10 +2,8 @@
 
 session_start();
 
-    include("../login/connection.php");
-    include("../login/functions.php");
-
-    $user_data = check_login_medewerker($con);
+    include("../../login/connection.php");
+    include("../../login/functions.php");
 
     $getid = $_GET['edit'];
 
@@ -41,11 +39,13 @@ if(isset($_POST['updateedit'])) {
 
     $seleditt = "UPDATE `medewerker` SET `medewerkervoornaam`='$upvoornaam' ,`medewerkertussenvoegsel`='$uptussenvoegsel',`medewerkerachternaam`='$upachternaam',
     `medewerkeradres`='$upadres',`medewerkerhuisnummer`='$uphuisnummer',`medewerkerpostcode`='$uppostcode', 
-    `medewerkerplaats`='$upplaats',`medewerkertelefoon`='$uptelefoon',`medewerkeremail`='$upemail'  WHERE `id` = '$upid'";
+    `medewerkerplaats`='$upplaats',`medewerkertelefoon`='$uptelefoon',`medewerkeremail`='$upemail'  WHERE `idmedewerker` = '$upid'";
     $qry = mysqli_query($con, $seleditt);
 
     if($qry) {
         header("location: settings.php");
+    } else {
+        echo "<h1>Error</h1>";
     }
 
 }
@@ -56,14 +56,14 @@ if(isset($_POST['updateedit'])) {
 <html>
 <head>
 	<title>Login</title>
-	<link rel="stylesheet" href="../css/login.css">
+	<link rel="stylesheet" href="../../css/login.css">
 </head>
 <body>
 
 	<div id="box">
 		
 		<form method="POST" action="">
-			<div>Login</div>
+			<div>Gegevens aanpassen</div>
             <input id='text' type="text" name="upid" value="<?php echo $id; ?>" hidden>
             <input id='text' type="text" name="upvoornaam" value="<?php echo $voornaam; ?>"><br><br>
             <input id='text' type="text" name="uptussenvoegsel" value="<?php echo $tussenvoegsel; ?>"><br><br>
