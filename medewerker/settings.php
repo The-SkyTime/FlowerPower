@@ -29,8 +29,8 @@ session_start();
         <header>
             <nav class="nav">
                 <ul class="nav__list">
-                    <li class=""><a href="profile.php" class="nav__link ">Profile</a></li>
                     <li class=""><a href="../index.php" class="nav__link">Home</a></li>
+                    <li class=""><a href="profile.php" class="nav__link">Profile</a></li>
                     <li class=""><a href="" class="nav__link">Comming Soon</a></li>
                     <li class=""><a href="" class="nav__link">Comming Soon</a></li>
                     <li class=""><a href="" class="nav__link active">Settings</a></li>
@@ -96,7 +96,9 @@ session_start();
                                 <form method='post' action='../changer/medewerker/passchanger.php?edit=" . $id . "'>
                                     <h2 class='section__title section__title--changer'>Uw wachtwoord</h2><br>
                                     <div class='edit'>
-                                        <p><input id='text' type='text' value=" . $password . " name='password'></p>
+                                        <p><input id='password' type='password' value=" . $password . " name='password'><br></p>
+                                        <p><input type='checkbox' id='showPassword'>
+                                        <label for='showPassword'>Show Password</label></p>
                                         <input type='submit' value='Aanpassen' class='btn' name='updatepass'>
                                     </div>
                                 </form>
@@ -105,6 +107,6 @@ session_start();
 
             ?>
         </div>
-
+        <script src="../js/password.js"></script>
     </body>
 </html>
