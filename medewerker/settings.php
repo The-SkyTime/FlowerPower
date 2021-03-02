@@ -93,8 +93,8 @@ session_start();
                         </section>";
 
                         echo "<section class='data-edit' id='edit'>
-                                <form method='post' action='../changer/passchanger.php?edit=" . $id . "'>
-                                    <h2 class='section__title section__title--changer'>Change your password </h2><br>
+                                <form method='post' action='../changer/medewerker/passchanger.php?edit=" . $id . "'>
+                                    <h2 class='section__title section__title--changer'>Uw wachtwoord</h2><br>
                                     <div class='edit'>
                                         <p><input id='text' type='text' value=" . $password . " name='password'></p>
                                         <input type='submit' value='Aanpassen' class='btn' name='updatepass'>

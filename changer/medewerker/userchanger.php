@@ -43,7 +43,7 @@ if(isset($_POST['updateedit'])) {
     $qry = mysqli_query($con, $seleditt);
 
     if($qry) {
-        header("location: settings.php");
+        header("location: ../../medewerker/settings.php");
     } else {
         echo "<h1>Error</h1>";
     }
