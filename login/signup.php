@@ -26,14 +26,14 @@ session_start();
 		{
 
 			//save to database
-			$query = "insert into klant (klantvoornaam,klanttussenvoegsel,klantachternaam,klantadres,klanthuisnummer,klantpostcode,klantplaats,klanttelefoon,klantemail,klantwachtwoord) 
+			$query = "insert into klant (klantvoornaam,klanttussenvoegsel,klantachternaam,klantadres,klanthuisnummer,klantpostcode,klantplaats,klanttelefoon,klantemail,klantpassword) 
 			values ('$voornaam','$tussenvoegsel','$achternaam','$adres','$huisnummer','$postcode','$plaats','$telefoon','$email','$password')";
 
 			mysqli_query($con, $query);
 
 			header("Location: login.php");
 			die;
-		}else 
+		}
 		if(!empty($voornaam) && !empty($achternaam) && !is_numeric($voornaam) && !is_numeric($achternaam) 
 		   && !empty($adres) && !empty($huisnummer) && !empty($postcode) && !empty($plaats) && !empty($telefoon) && !empty($email) && !empty($password) && $account == "medewerker")
 		{

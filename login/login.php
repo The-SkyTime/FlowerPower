@@ -29,7 +29,7 @@ session_start();
 
 					$user_data = mysqli_fetch_assoc($klant_result);
 					
-					if($user_data['klantwachtwoord'] === $password)
+					if($user_data['klantpassword'] === $password)
 					{
 
 						$_SESSION['idklant'] = $user_data['idklant'];
