@@ -27,7 +27,6 @@ session_start();
 
     </head>
     <body>
-    <body>
         <header>
         <?php
             if(isset($_SESSION['idmedewerker']))
@@ -36,9 +35,9 @@ session_start();
                     "<nav class='nav'>
                         <ul class='nav__list'>
                             <li class=''><a href='' class='nav__link active'>Home</a></li>
-                            <li class=''><a href='' class='nav__link'>Shop(Comming Soon)</a></li>
+                            <li class=''><a href='shop/shop.php' class='nav__link'>Shop(Comming Soon)</a></li>
                             <li class=''><a href='medewerker/profile.php' class='nav__link'>Profile</a></li>
-                            <li class=''><a href='medewerkers/members.php' class='nav__link'>Members</a></li>
+                            <li class=''><a href='medewerker/members.php' class='nav__link'>Members</a></li>
                             <li class=''><a href='medewerker/settings.php' class='nav__link'>Settings</a></li>
                             <li class=''><a href='../login/logout.php' class='nav__link'>Logout</a></li>
                         </ul>
