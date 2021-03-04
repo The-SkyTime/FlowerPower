@@ -5,6 +5,7 @@ session_start();
     include("../login/connection.php");
     include("../login/functions.php");
 
+    check_login($con);
     $user_data = check_login_medewerker($con);
 
 ?>
@@ -30,11 +31,10 @@ session_start();
             <nav class="nav">
                 <ul class="nav__list">
                     <li class=""><a href="../index.php" class="nav__link">Home</a></li>
+                    <li class=""><a href="" class="nav__link">Shop(Comming Soon)</a></li>
                     <li class=""><a href="profile.php" class="nav__link">Profile</a></li>
-                    <li class=""><a href="" class="nav__link">Comming Soon</a></li>
-                    <li class=""><a href="" class="nav__link">Comming Soon</a></li>
+                    <li class=""><a href="members.php" class="nav__link">Members</a></li>
                     <li class=""><a href="" class="nav__link active">Settings</a></li>
-                    <!-- <li class="nav__item"><a href="php/login.php" class="nav__link">Login</a></li> -->
                     <li class=""><a href="../login/logout.php" class="nav__link">Logout</a></li>
                 </ul>
             </nav>

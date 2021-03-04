@@ -29,10 +29,10 @@ session_start();
         <header>
             <nav class="nav">
                 <ul class="nav__list">
-                    <li class=""><?php echo "<a href='../index.php?id=" . $user_data['idmedewerker'] ."' class='nav__link'>Home</a>"?></li>
+                    <li class=""><a href="../index.php" class="nav__link">Home</a></li>
                     <li class=""><a href="" class="nav__link">Shop(Comming Soon)</a></li>
-                    <li class=""><a href="" class="nav__link active">Profile</a></li>
-                    <li class=""><a href="members.php" class="nav__link">Members</a></li>
+                    <li class=""><a href="profile.php" class="nav__link">Profile</a></li>
+                    <li class=""><a href="" class="nav__link active">Members</a></li>
                     <li class=""><a href="settings.php" class="nav__link">Settings</a></li>
                     <li class=""><a href="../login/logout.php" class="nav__link">Logout</a></li>
                 </ul>
@@ -53,29 +53,37 @@ session_start();
             
             <!-- My services -->
             <section class="my-services" id="services">
-                <h2 class="section__title section__title--services">Bestellingen</h2>
+                <h2 class="section__title section__title--services">Gegevens</h2>
                 <table>
                     <tr>
-                        <tr><td>Voornaam</td><td>Tussenvoegsel</td><td>Achternaam</td><td>E-mail</td><td>Factuurnummer</td><td>Datum</td><td>Afgehaald</td><td>Medewerker</td></tr>
+                        <tr><td>Voornaam</td><td>Tussenvoegsel</td><td>Achternaam</td><td>E-mail</td><td>Medewerker</td></tr>
+                        <input id="showKlant" type="checkbox">Show Klanten<br><input id="showMedewerker" type="checkbox"> Show Medewerkers
                         <?php
-                            $sel = "SELECT * FROM klant, medewerker";
-                            $qrydisplay = mysqli_query($con, $sel);
+                            $selklant = "SELECT * FROM klant";
+                            $qrydisplay = mysqli_query($con, $selklant);
                             while($row = mysqli_fetch_array($qrydisplay)) {
-                                $voornaam = $row['klantvoornaam'];
-                                $tussenvoegsel = $row['klanttussenvoegsel'];
-                                $achternaam = $row['klantachternaam'];
-                                $email = $row['klantemail'];
-                                $medewerkervoor = $row['medewerkervoornaam'];
-                                $medewerkertus = $row['medewerkertussenvoegsel'];
-                                $medewerkeracht = $row['medewerkerachternaam'];
+                                $klantvoornaam = $row['klantvoornaam'];
+                                $klanttussenvoegsel = $row['klanttussenvoegsel'];
+                                $klantachternaam = $row['klantachternaam'];
+                                $klantemail = $row['klantemail'];
                                 
-                                echo "<tr><td>" . $voornaam ." </td> <td>" . $tussenvoegsel ." </td> <td>" . $achternaam ." </td> <td>" . $email ." </td><td> </td><td> </td><td> </td><td>" . $medewerkervoor . "&nbsp". $medewerkertus . "&nbsp" . $medewerkeracht . "</td></tr>";
+                                echo "<tr id='klant' style='visibility: hidden; display: none;'><td>" . $klantvoornaam ." </td> <td>" . $klanttussenvoegsel ." </td> <td>" . $klantachternaam ." </td> <td>" . $klantemail ." </td> <td> <input type='checkbox'> </tr>";
+                            }
+                            $selmedewerker = "SELECT * FROM medewerker";
+                            $qrydisplay = mysqli_query($con, $selmedewerker);
+                            while($row = mysqli_fetch_array($qrydisplay)) {
+                                $medewerkervoornaam = $row['medewerkervoornaam'];
+                                $medewerkertussenvoegsel = $row['medewerkertussenvoegsel'];
+                                $medewerkerachternaam = $row['medewerkerachternaam'];
+                                $medewerkeremail = $row['medewerkeremail'];
+                                
+                                echo "<tr id='medewerker' style='visibility: hidden; display: none;'><td>" . $medewerkervoornaam ." </td> <td>" . $medewerkertussenvoegsel ." </td> <td>" . $medewerkerachternaam ." </td> <td>" . $medewerkeremail ." </td> <td> <input type='checkbox' checked> </tr>";
                             }
                         ?>
                     </tr>
                 </table>
             </section>
         </div>
-
+        <script src="../js/members.js"></script>
     </body>
 </html>
