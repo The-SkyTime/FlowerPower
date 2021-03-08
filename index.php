@@ -59,8 +59,8 @@ session_start();
                     "<nav class='nav'>
                         <ul class='nav__list'>
                             <li class=''><a href='' class='nav__link active'>Home</a></li
-                            <li class=''><a href='' class='nav__link'>Shop(Comming Soon)</a></li>
-                            <li class=''><a href='../login/login.php' class='nav__link'>Login</a></li>
+                            <li class=''><a href='shop/shop.php' class='nav__link'>Shop(Comming Soon)</a></li>
+                            <li class=''><a href='login/login.php' class='nav__link'>Login</a></li>
                         </ul>
                     </nav>";
                 }

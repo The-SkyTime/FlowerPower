@@ -22,7 +22,7 @@ session_start();
         <!-- Update these with your own fonts -->
         <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap" rel="stylesheet">
         
-        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/shop.css">
 </head>
 <body>
 <header>
@@ -56,8 +56,8 @@ session_start();
                     echo 
                     "<nav class='nav'>
                         <ul class='nav__list'>
-                            <li class=''><a href='../index.php' class='nav__link active'>Home</a></li
-                            <li class=''><a href='' class='nav__link'>Shop(Comming Soon)</a></li>
+                            <li class=''><a href='../index.php' class='nav__link '>Home</a></li
+                            <li class=''><a href='template.php' class='nav__link active'>Shop(Comming Soon)</a></li>
                             <li class=''><a href='../login/login.php' class='nav__link'>Login</a></li>
                         </ul>
                     </nav>";
@@ -65,5 +65,15 @@ session_start();
                 
         ?>
         </header>
+
+        <section class="intro" id="home">
+            <?php
+            $selklant = "SELECT * FROM artikel";
+            $qrydisplay = mysqli_query($con, $selklant);
+            while($row = mysqli_fetch_array($qrydisplay)) {
+                $img = $row['img'];
+                echo "<img src='../" . $img . "'>";
+            } ?>
+        </section>
 </body>
 </html>
