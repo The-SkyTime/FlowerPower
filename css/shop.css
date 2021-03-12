@@ -84,23 +84,3 @@ ul {
     background-color: #555;
     color: white;
   }
-
-img {
-    max-width: 250px;
-    max-height: 250px;
-    position: relative;
-}
-
-
-/* Grid styles */
-.grid-container {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    padding: 10px;
-}
-
-.grid-item {
-    padding: 20px;
-    text-align: center;
-}
-

@@ -72,14 +72,14 @@ if(isset($_GET["action"]))
 </head>
 <body>
 <header>
-        <!-- <?php
+        <?php
             if(isset($_SESSION['idmedewerker']))
             {
                     echo 
                     "<nav class='nav'>
                         <ul class='nav__list'>
                             <li class=''><a href='../index.php' class='nav__link'>Home</a></li>
-                            <li class=''><a href='' class='nav__link active'>Shop(Comming Soon)</a></li>
+                            <li class=''><a href='template.php' class='nav__link active'>Shop</a></li>
                             <li class=''><a href='../medewerker/profile.php' class='nav__link'>Profile</a></li>
                             <li class=''><a href='../medewerker/members.php' class='nav__link'>Members</a></li>
                             <li class=''><a href='../medewerker/settings.php' class='nav__link'>Settings</a></li>
@@ -92,7 +92,7 @@ if(isset($_GET["action"]))
                     "<nav class='nav'>
                         <ul class='nav__list'>
                             <li class=''><a href='../index.php' class='nav__link active'>Home</a></li>
-                            <li class=''><a href='' class='nav__link'>Shop(Comming Soon)</a></li>
+                            <li class=''><a href='' class='nav__link'>Shop</a></li>
                             <li class=''><a href='../klant/profile.php' class='nav__link'>Profile</a></li>
                             <li class=''><a href='../klant/settings.php' class='nav__link'>Settings</a></li>
                             <li class=''><a href='../login/logout.php' class='nav__link'>Logout</a></li>
@@ -102,14 +102,14 @@ if(isset($_GET["action"]))
                     echo 
                     "<nav class='nav'>
                         <ul class='nav__list'>
-                            <li class=''><a href='../index.php' class='nav__link '>Home</a></li
-                            <li class=''><a href='template.php' class='nav__link active'>Shop(Comming Soon)</a></li>
+                            <li class=''><a href='../index.php' class='nav__link '>Home</a></li>
+                            <li class=''><a href='shop2.php' class='nav__link active'>Shop</a></li>
                             <li class=''><a href='../login/login.php' class='nav__link'>Login</a></li>
                         </ul>
                     </nav>";
                 }
                 
-        ?> -->
+        ?>
         </header>
 
         <div class="container">
@@ -136,7 +136,7 @@ if(isset($_GET["action"]))
 
                             <input type="hidden" name="hidden_price" value="<?php echo $row["prijs"]; ?>" />
 
-                            <input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-success" value="Add to Cart" />
+                            <input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-success" value="Voeg toe" />
 
                         </div>
                     </form>
@@ -147,15 +147,15 @@ if(isset($_GET["action"]))
                 ?>
                 <div style="clear:both"></div>
                 <br />
-                <h3>Order Details</h3>
+                <h3>Bestelling Details</h3>
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <tr>
-                            <th width="40%">Item Name</th>
-                            <th width="10%">Quantity</th>
-                            <th width="20%">Price</th>
-                            <th width="15%">Total</th>
-                            <th width="5%">Action</th>
+                            <th width="40%">Artikelen</th>
+                            <th width="10%">Hoeveelheid</th>
+                            <th width="20%">Prijs</th>
+                            <th width="15%">Totaal</th>
+                            <th width="5%">Verwijderen</th>
                         </tr>
                         <?php
                         if(!empty($_SESSION["shopping_cart"]))
@@ -169,7 +169,7 @@ if(isset($_GET["action"]))
                             <td><?php echo $values["item_quantity"]; ?></td>
                             <td>$ <?php echo $values["item_price"]; ?></td>
                             <td>$ <?php echo number_format($values["item_quantity"] * $values["item_price"], 2);?></td>
-                            <td><a href="shop.php?action=delete&id=<?php echo $values["item_id"]; ?>"><span class="text-danger">Remove</span></a></td>
+                            <td><a href="shop.php?action=delete&id=<?php echo $values["item_id"]; ?>"><span class="text-danger">Verwijderen</span></a></td>
                         </tr>
                         <?php
                                 $total = $total + ($values["item_quantity"] * $values["item_price"]);
@@ -188,18 +188,5 @@ if(isset($_GET["action"]))
                 </div>
             </div>
         </div>
-
-        <!-- <section class="intro" id="home">
-            <div class="grid-container">
-                <?php
-                $selklant = "SELECT * FROM artikel";
-                $qrydisplay = mysqli_query($con, $selklant);
-                while($row = mysqli_fetch_array($qrydisplay)) {
-                    $img = $row['img'];
-                    $naam = $row['naam']; 
-                    echo "<div class='grid-item'><h3>" . $naam ."</h4> <img src='../" . $img . "'> </div>";
-                } ?>
-            </div>
-        </section> -->
 </body>
 </html>

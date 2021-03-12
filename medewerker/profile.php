@@ -30,7 +30,7 @@ session_start();
             <nav class="nav">
                 <ul class="nav__list">
                     <li class=""><?php echo "<a href='../index.php?id=" . $user_data['idmedewerker'] ."' class='nav__link'>Home</a>"?></li>
-                    <li class=""><a href="" class="nav__link">Shop(Comming Soon)</a></li>
+                    <li class=''><a href='../shop/shop.php' class='nav__link'>Shop</a></li>
                     <li class=""><a href="" class="nav__link active">Profile</a></li>
                     <li class=""><a href="members.php" class="nav__link">Members</a></li>
                     <li class=""><a href="settings.php" class="nav__link">Settings</a></li>

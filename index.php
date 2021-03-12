@@ -35,7 +35,7 @@ session_start();
                     "<nav class='nav'>
                         <ul class='nav__list'>
                             <li class=''><a href='' class='nav__link active'>Home</a></li>
-                            <li class=''><a href='shop/shop.php' class='nav__link'>Shop(Comming Soon)</a></li>
+                            <li class=''><a href='shop/shop.php' class='nav__link'>Shop</a></li>
                             <li class=''><a href='medewerker/profile.php' class='nav__link'>Profile</a></li>
                             <li class=''><a href='medewerker/members.php' class='nav__link'>Members</a></li>
                             <li class=''><a href='medewerker/settings.php' class='nav__link'>Settings</a></li>
@@ -48,7 +48,7 @@ session_start();
                     "<nav class='nav'>
                         <ul class='nav__list'>
                             <li class=''><a href='' class='nav__link active'>Home</a></li>
-                            <li class=''><a href='' class='nav__link'>Shop(Comming Soon)</a></li>
+                            <li class=''><a href='shop/shop.php' class='nav__link'>Shop</a></li>
                             <li class=''><a href='klant/profile.php' class='nav__link'>Profile</a></li>
                             <li class=''><a href='klant/settings.php' class='nav__link'>Settings</a></li>
                             <li class=''><a href='../login/logout.php' class='nav__link'>Logout</a></li>
@@ -58,8 +58,8 @@ session_start();
                     echo 
                     "<nav class='nav'>
                         <ul class='nav__list'>
-                            <li class=''><a href='' class='nav__link active'>Home</a></li
-                            <li class=''><a href='shop/shop.php' class='nav__link'>Shop(Comming Soon)</a></li>
+                            <li class=''><a href='' class='nav__link active'>Home</a></li>
+                            <li class=''><a href='shop/shop.php' class='nav__link'>Shop</a></li>
                             <li class=''><a href='login/login.php' class='nav__link'>Login</a></li>
                         </ul>
                     </nav>";
@@ -113,60 +113,35 @@ session_start();
            <img src="img/bloemen2.jpg" alt="Een mooie foto van bloemen" class="about-me__img">
         </section>
         
-        <!-- My Work -->
+        <!-- My Shop -->
         <section class="my-work" id="work">
             <h2 class="section__title section__title--work">Shop</h2>
             <p class="section__subtitle section__subtitle--work">A selection of our items</p>
             
             <div class="portfolio">
-                <!-- Portfolio item 01 -->
+                <!-- Artikel item 01 -->
                 <a href="#" class="portfolio__item">
                     <img src="img/portfolio-01.jpg" alt="" class="portfolio__img">
                 </a>
                 
-                <!-- Portfolio item 02 -->
+                <!-- Artikel item 02 -->
                 <a href="#" class="portfolio__item">
                     <img src="img/portfolio-02.jpg" alt="" class="portfolio__img">
                 </a>
                 
-                <!-- Portfolio item 03 -->
+                <!-- Artikel item 03 -->
                 <a href="#" class="portfolio__item">
                     <img src="img/portfolio-03.jpg" alt="" class="portfolio__img">
                 </a>
                 
-                <!-- Portfolio item 04 -->
+                <!-- Artikel item 04 -->
                 <a href="#" class="portfolio__item">
                     <img src="img/portfolio-04.jpg" alt="" class="portfolio__img">
                 </a>
                 
-                <!-- Portfolio item 05 -->
+                <!-- Artikel item 05 -->
                 <a href="#" class="portfolio__item">
                     <img src="img/portfolio-05.jpg" alt="" class="portfolio__img">
-                </a>
-                
-                <!-- Portfolio item 06 -->
-                <a href="#" class="portfolio__item">
-                    <img src="img/portfolio-06.jpg" alt="" class="portfolio__img">
-                </a>
-                
-                <!-- Portfolio item 07 -->
-                <a href="#" class="portfolio__item">
-                    <img src="img/portfolio-07.jpg" alt="" class="portfolio__img">
-                </a>
-                
-                <!-- Portfolio item 08 -->
-                <a href="#" class="portfolio__item">
-                    <img src="img/portfolio-08.jpg" alt="" class="portfolio__img">
-                </a>
-                
-                <!-- Portfolio item 09 -->
-                <a href="#" class="portfolio__item">
-                    <img src="img/portfolio-09.jpg" alt="" class="portfolio__img">
-                </a>
-                
-                <!-- Portfolio item 0 0-->
-                <a href="project-template.html" class="portfolio__item">
-                    <img src="img/portfolio-10.jpg" alt="" class="portfolio__img">
                 </a>
             </div>
         </section>

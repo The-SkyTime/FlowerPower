@@ -16,7 +16,7 @@ session_start();
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title><?php echo $user_data['klantvoornaam']; ?>'s Profile </title>
+        <title><?php echo $user_data['klantvoornaam']; ?>'s Settings </title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />  
         
@@ -31,8 +31,8 @@ session_start();
             <nav class="nav">
                 <ul class="nav__list">
                     <li class=""><a href="../index.php" class="nav__link">Home</a></li>
+                    <li class=''><a href='../shop/shop.php' class='nav__link'>Shop</a></li>
                     <li class=""><a href="profile.php" class="nav__link">Profile</a></li>
-                    <li class=""><a href="" class="nav__link">Shop(Comming Soon)</a></li>
                     <li class=""><a href="" class="nav__link active">Settings</a></li>
                     <li class=""><a href="../login/logout.php" class="nav__link">Logout</a></li>
                 </ul>
@@ -46,8 +46,6 @@ session_start();
                 <h1 class="section__title section__title--intro">
                     Hi <strong><?php echo $user_data['klantvoornaam']; ?></strong>
                 </h1>
-                <p class="section__subtitle section__subtitle--intro">Your Profile Page</p>
-                <img src="../img/stock-profile.jpg" alt="Your profile picture" class="intro__img">
             </section>
 
             <!-- Change Username --> <!-- Change Password -->
@@ -73,19 +71,19 @@ session_start();
                             <form method='post' action='../changer/klant/userchanger.php?edit=" . $id . "'>
                                 <h2 class='section__title section__title--changer'>Uw gegevens </h2><br>
                                 <div class='edit'>
-                                    <p><input id='text' type='text' value=" . $voornaam . " name='voornaam'></p>";
+                                    <p><input id='text' type='text' value=" . $voornaam . " name='voornaam' readonly></p>";
                                         if ($tussenvoegsel != "") {
-                                            echo "<p><input id='text' type='text' value=" . $tussenvoegsel . " name='tussenvoegsel'></p>";
+                                            echo "<p><input id='text' type='text' value=" . $tussenvoegsel . " name='tussenvoegsel' readonly></p>";
                                         }else {
-                                            echo "<p><input id='text' type='text' value=&nbsp name='tussenvoegsel'></p>";
+                                            echo "<p><input id='text' type='text' value=&nbsp name='tussenvoegsel' readonly></p>";
                                         }                             
-                                    echo "<p><input id='text' type='text' value=" . $achternaam . " name='achternaam'></p>
-                                    <p><input id='text' type='text' value=" . $adres . " name='adres'></p>
-                                    <p><input id='text' type='text' value=" . $huisnummer . " name='huisnummer'></p>
-                                    <p><input id='text' type='text' value=" . $postcode . " name='postcode'></p>
-                                    <p><input id='text' type='text' value=" . $plaats . " name='plaats'></p>
-                                    <p><input id='text' type='text' value=" . $telefoon . " name='telefoon'></p>
-                                    <p><input id='text' type='text' value=" . $email . " name='email'></p>
+                                    echo "<p><input id='text' type='text' value=" . $achternaam . " name='achternaam' readonly></p>
+                                    <p><input id='text' type='text' value=" . $adres . " name='adres' readonly></p>
+                                    <p><input id='text' type='text' value=" . $huisnummer . " name='huisnummer' readonly></p>
+                                    <p><input id='text' type='text' value=" . $postcode . " name='postcode' readonly></p>
+                                    <p><input id='text' type='text' value=" . $plaats . " name='plaats' readonly></p>
+                                    <p><input id='text' type='text' value=" . $telefoon . " name='telefoon' readonly></p>
+                                    <p><input id='text' type='text' value=" . $email . " name='email' readonly></p>
                                     <input type='submit' value='Aanpassen' class='btn' name='updateuser'>
                                 </div>
                             </form>
@@ -95,7 +93,7 @@ session_start();
                                 <form method='post' action='../changer/klant/passchanger.php?edit=" . $id . "'>
                                     <h2 class='section__title section__title--changer'>Uw wachtwoord</h2><br>
                                     <div class='edit'>
-                                        <p><input id='password' type='password' value=" . $password . " name='password'><br></p>
+                                        <p><input id='password' type='password' value=" . $password . " name='password' readonly><br></p>
                                         <p><input type='checkbox' id='showPassword'>
                                         <label for='showPassword'>Show Password</label></p>
                                         <input type='submit' value='Aanpassen' class='btn' name='updatepass'>

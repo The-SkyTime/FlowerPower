@@ -15,7 +15,7 @@ session_start();
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title><?php echo $user_data['medewerkervoornaam']; ?>'s Profile </title>
+        <title>Members</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />  
         
@@ -30,7 +30,7 @@ session_start();
             <nav class="nav">
                 <ul class="nav__list">
                     <li class=""><a href="../index.php" class="nav__link">Home</a></li>
-                    <li class=""><a href="" class="nav__link">Shop(Comming Soon)</a></li>
+                    <li class=''><a href='../shop/shop.php' class='nav__link'>Shop</a></li>
                     <li class=""><a href="profile.php" class="nav__link">Profile</a></li>
                     <li class=""><a href="" class="nav__link active">Members</a></li>
                     <li class=""><a href="settings.php" class="nav__link">Settings</a></li>
@@ -59,17 +59,21 @@ session_start();
                         <tr><td>Voornaam</td><td>Tussenvoegsel</td><td>Achternaam</td><td>E-mail</td><td>Medewerker</td></tr>
                         <input id="showKlant" type="checkbox">Show Klanten<br><input id="showMedewerker" type="checkbox"> Show Medewerkers
                         <?php
-                            $selklant = "SELECT * FROM klant";
-                            $qrydisplay = mysqli_query($con, $selklant);
-                            while($row = mysqli_fetch_array($qrydisplay)) {
-                                $klantvoornaam = $row['klantvoornaam'];
-                                $klanttussenvoegsel = $row['klanttussenvoegsel'];
-                                $klantachternaam = $row['klantachternaam'];
-                                $klantemail = $row['klantemail'];
-                                
-                                echo "<tr id='klant' style='visibility: hidden; display: none;'><td>" . $klantvoornaam ." </td> <td>" . $klanttussenvoegsel ." </td> <td>" . $klantachternaam ." </td> <td>" . $klantemail ." </td> <td> <input type='checkbox'> </tr>";
+                            $selklant = "SELECT * FROM klant ORDER BY idklant ASC";
+                            $result = mysqli_query($con, $selklant);
+                            if(mysqli_num_rows($result) > 0)
+				            {
+                                while($row = mysqli_fetch_array($result))
+                                {
+                                    $klantvoornaam = $row['klantvoornaam'];
+                                    $klanttussenvoegsel = $row['klanttussenvoegsel'];
+                                    $klantachternaam = $row['klantachternaam'];
+                                    $klantemail = $row['klantemail'];
+                                    
+                                    echo "<tr id='klant' style='visibility: hidden; display: none;'><td>" . $klantvoornaam ." </td> <td>" . $klanttussenvoegsel ." </td> <td>" . $klantachternaam ." </td> <td>" . $klantemail ." </td> <td> <input type='checkbox'> </tr>";
+                                }
                             }
-                            $selmedewerker = "SELECT * FROM medewerker";
+                            $selmedewerker = "SELECT * FROM medewerker ORDER BY idmedewerker ASC";
                             $qrydisplay = mysqli_query($con, $selmedewerker);
                             while($row = mysqli_fetch_array($qrydisplay)) {
                                 $medewerkervoornaam = $row['medewerkervoornaam'];
