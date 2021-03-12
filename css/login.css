@@ -9,7 +9,7 @@
     
     --clr-light: #fff;
     --clr-dark: #303030;
-    --clr-accent: #16e0bd;
+    --clr-accent: #4CAF50;
     
     --fs-h1: 3rem;
     --fs-h2: 2.25rem;
@@ -36,7 +36,7 @@ html {
 div {
     font-size: 20px;
     margin: 10px;
-    color: white;
+    color: var(--clr-light);
 }
 
 #text{
@@ -44,7 +44,7 @@ div {
     height: 25px;
     border-radius: 5px;
     padding: 4px;
-    border: solid thin #aaa;
+    border: solid thin var(--clr-dark);
     width: 100%;
 }
 

@@ -9,7 +9,7 @@
     
     --clr-light: #fff;
     --clr-dark: #303030;
-    --clr-accent: #16e0bd;
+    --clr-accent: #4CAF50;
     
     --fs-h1: 3rem;
     --fs-h2: 2.25rem;
@@ -70,17 +70,17 @@ ul {
   
   li a {
     display: block;
-    color: #000;
+    color: var(--clr-dark);
     padding: 8px 16px;
     text-decoration: none;
   }
   
   li a.active {
-    background-color: #4CAF50;
+    background-color: var(--clr-accent);
     color: white;
   }
   
   li a:hover:not(.active) {
-    background-color: #555;
+    background-color: var(--clr-dark);
     color: white;
   }

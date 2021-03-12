@@ -15,7 +15,7 @@
     
     --clr-light: #fff;
     --clr-dark: #303030;
-    --clr-accent: #16e0bd;
+    --clr-accent: #4CAF50;
     
     --fs-h1: 3rem;
     --fs-h2: 2.25rem;
@@ -143,19 +143,19 @@ h3 { font-size: var(--fs-h3) }
   
   li a {
     display: block;
-    color: #000;
+    color: var(--clr-dark);
     padding: 8px 16px;
     text-decoration: none;
   }
   
   li a.active {
-    background-color: #4CAF50;
-    color: white;
+    background-color: var(--clr-accent);
+    color: var(--clr-light);
   }
   
   li a:hover:not(.active) {
-    background-color: #555;
-    color: white;
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
   }
 
   /*  Intro section  */
@@ -238,7 +238,7 @@ h3 { font-size: var(--fs-h3) }
     height: 25px;
     border-radius: 5px;
     padding: 4px;
-    border: solid thin #aaa;
+    border: solid thin var(--clr-dark);
     width: 100%;
 }
 
@@ -271,11 +271,11 @@ h3 { font-size: var(--fs-h3) }
 /* Bestellingen */
 
 table {
-    border: 1px solid white;
+    border: 1px solid var(--clr-light);
     border-collapse: collapse;
 }
 
 td {
-    border: 1px solid white;
+    border: 1px solid var(--clr-light);
     padding: 10px;
 }
