@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
       //Too long file name?
       if(strlen ($upload_file_name)>100)
       {
-          echo " too long file name ";
+          echo " too long file name, please change it to something else ";
           exit;
       }
 
@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     $dest=__DIR__.'../../img/'.$upload_file_name;
     if (move_uploaded_file($_FILES['artikel']['tmp_name'], $dest)) 
     {
-        echo 'File Has Been Uploaded !';
+        echo 'Artikel Has Been Uploaded !';
 
         $query = "insert into artikel (naam, omschrijving, prijs, img) 
 			values ('$naam_artikel','$omschrijving_artikel','$prijs_artikel','$dest')";
@@ -92,6 +92,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     <img id="flower" src="#" alt="Your image"><br>
 	<input type="submit" value="Upload Now">
 	</form>
+    <br>
+    <a class="btn" href="shop.php">Return to Shop</a>
 
     <script>
         function readURL(input) {

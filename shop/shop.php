@@ -66,9 +66,9 @@ if(isset($_GET["action"]))
         
         <link rel="stylesheet" href="../css/shop.css">
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> -->
+		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" /> -->
+		<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  -->
 </head>
 <body>
 <header>
@@ -103,7 +103,7 @@ if(isset($_GET["action"]))
                     "<nav class='nav'>
                         <ul class='nav__list'>
                             <li class=''><a href='../index.php' class='nav__link '>Home</a></li>
-                            <li class=''><a href='shop2.php' class='nav__link active'>Shop</a></li>
+                            <li class=''><a href='' class='nav__link active'>Shop</a></li>
                             <li class=''><a href='../login/login.php' class='nav__link'>Login</a></li>
                         </ul>
                     </nav>";
@@ -114,29 +114,57 @@ if(isset($_GET["action"]))
 
         <div class="container">
         <?php
-				$query = "SELECT * FROM artikel ORDER BY idartikel ASC";
+				$query = "SELECT * FROM artikel";
 				$result = mysqli_query($con, $query);
 				if(mysqli_num_rows($result) > 0)
 				{
 					while($row = mysqli_fetch_array($result))
 					{
-				?>
-                <div class="col-md-4">
-                    <form method="post" action="shop.php?action=add&id=<?php echo $row["idartikel"]; ?>">
-                        <div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;" align="center">
-                            <img src="../<?php echo $row["img"]; ?>" class="img-responsive" /><br />
+                        $id = $row['idartikel'];
+                        $naam = $row['naam'];
+                        $omschrijving = $row['omschrijving'];
+                        $prijs = $row['prijs'];
+                        $img = $row['img'];
 
-                            <h4 class="text-info"><?php echo $row["naam"]; ?></h4>
+                        echo "<div class='col-md-4'>";
+                        
+                        if(isset($_SESSION['idmedewerker']))
+                            { echo "
+                                <div style='border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;' align='center' class='edit'>
+                                <img src='../" . $img . "' class='img-responsive' /><br />
 
-                            <h4 class="text-danger">$ <?php echo $row["prijs"]; ?></h4>
+                                <h4 class='text-info'>" . $naam ."</h4>
 
-                            <input type="text" name="quantity" value="1" class="form-control" />
+                                <h4 class='text-danger'>$ " . $prijs ."</h4>
 
-                            <input type="hidden" name="hidden_name" value="<?php echo $row["naam"]; ?>" />
+                                <input type='text' name='quantity' value='1' class='form-control' />
 
-                            <input type="hidden" name="hidden_price" value="<?php echo $row["prijs"]; ?>" />
+                                <input type='hidden' name='hidden_name' value='" . $naam ."' />
 
-                            <input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-success" value="Voeg toe" />
+                                <input type='hidden' name='hidden_price' value='" . $prijs ."' />
+
+                                <a class='btn btn-success' href='artikel.php?edit=" . $id . "'>Edit</a>
+                                <a class='btn btn-success' href='delete.php?deleteid=" . $id . "'>Delete</a>";
+
+                                } else {
+                                    echo "<form method='post' action='shop.php?action=add&id=" . $id ."'>
+                                        <div style='border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;' align='center'>
+                                        <img src='../" . $img . "' class='img-responsive' /><br />
+
+                                        <h4 class='text-info'>" . $naam ."</h4>
+
+                                        <h4 class='text-danger'>$ " . $prijs ."</h4>
+
+                                        <input type='text' name='quantity' value='1' class='form-control' />
+
+                                        <input type='hidden' name='hidden_name' value='" . $naam ."' />
+
+                                        <input type='hidden' name='hidden_price' value='" . $prijs ."' />
+
+                                        <input type='submit' name='add_to_cart' style='margin-top:5px;' class='btn btn-success' value='Voeg toe' />";
+                                }
+                            
+                            ?>
 
                         </div>
                     </form>
