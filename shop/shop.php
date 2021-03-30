@@ -79,7 +79,8 @@ if(isset($_GET["action"]))
                     "<nav class='nav'>
                         <ul class='nav__list'>
                             <li class=''><a href='../index.php' class='nav__link'>Home</a></li>
-                            <li class=''><a href='template.php' class='nav__link active'>Shop</a></li>
+                            <li class=''><a href='#' class='nav__link active'>Shop</a></li>
+                            <li class=''><a href='template.php' class='nav__link'>Artikel Toevoegen</a></li>
                             <li class=''><a href='../medewerker/profile.php' class='nav__link'>Profile</a></li>
                             <li class=''><a href='../medewerker/members.php' class='nav__link'>Members</a></li>
                             <li class=''><a href='../medewerker/settings.php' class='nav__link'>Settings</a></li>
@@ -114,7 +115,7 @@ if(isset($_GET["action"]))
 
         <div class="container">
         <?php
-				$query = "SELECT * FROM artikel";
+				$query = "SELECT * FROM artikel ";
 				$result = mysqli_query($con, $query);
 				if(mysqli_num_rows($result) > 0)
 				{
@@ -127,7 +128,7 @@ if(isset($_GET["action"]))
                         $img = $row['img'];
 
                         echo "<div class='col-md-4'>";
-                        
+
                         if(isset($_SESSION['idmedewerker']))
                             { echo "
                                 <div style='border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;' align='center' class='edit'>
@@ -135,7 +136,7 @@ if(isset($_GET["action"]))
 
                                 <h4 class='text-info'>" . $naam ."</h4>
 
-                                <h4 class='text-danger'>$ " . $prijs ."</h4>
+                                <h4 class='text-danger'>€ " . $prijs ."</h4>
 
                                 <input type='text' name='quantity' value='1' class='form-control' />
 
@@ -143,35 +144,31 @@ if(isset($_GET["action"]))
 
                                 <input type='hidden' name='hidden_price' value='" . $prijs ."' />
 
-                                <a class='btn btn-success' href='artikel.php?edit=" . $id . "'>Edit</a>
+                                <a class='btn btn-success' href='artikel.php?editart=" . $id . "'>Edit</a>
                                 <a class='btn btn-success' href='delete.php?deleteid=" . $id . "'>Delete</a>";
 
-                                } else {
-                                    echo "<form method='post' action='shop.php?action=add&id=" . $id ."'>
-                                        <div style='border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;' align='center'>
-                                        <img src='../" . $img . "' class='img-responsive' /><br />
+                            } else 
+                            { echo "<form method='post' action='shop.php?action=add&id=" . $id ."'>
+                                <div style='border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;' align='center'>
+                                <img src='../" . $img . "' class='img-responsive' /><br />
 
-                                        <h4 class='text-info'>" . $naam ."</h4>
+                                <h4 class='text-info'>" . $naam ."</h4>
 
-                                        <h4 class='text-danger'>$ " . $prijs ."</h4>
+                                <h4 class='text-danger'>€ " . $prijs ."</h4>
 
-                                        <input type='text' name='quantity' value='1' class='form-control' />
+                                <input type='text' name='quantity' value='1' class='form-control' />
 
-                                        <input type='hidden' name='hidden_name' value='" . $naam ."' />
+                                <input type='hidden' name='hidden_name' value='" . $naam ."' />
 
-                                        <input type='hidden' name='hidden_price' value='" . $prijs ."' />
+                                <input type='hidden' name='hidden_price' value='" . $prijs ."' />
 
-                                        <input type='submit' name='add_to_cart' style='margin-top:5px;' class='btn btn-success' value='Voeg toe' />";
-                                }
-                            
-                            ?>
-
-                        </div>
-                    </form>
-                </div>
-                <?php
-                        }
+                                <input type='submit' name='add_to_cart' style='margin-top:5px;' class='btn btn-success' value='Voeg toe' />";
+                            }
+                            echo "</div>
+                            </form>
+                        </div>";
                     }
+                }
                 ?>
                 <div style="clear:both"></div>
                 <br />
@@ -205,7 +202,7 @@ if(isset($_GET["action"]))
                         ?>
                         <tr>
                             <td colspan="3" align="right">Total</td>
-                            <td align="right">$ <?php echo number_format($total, 2); ?></td>
+                            <td align="right">€ <?php echo number_format($total, 2); ?></td>
                             <td></td>
                         </tr>
                         <?php

@@ -89,11 +89,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         <label for="prijs-artikel">Prijs van het artikel: </label><br>
         <input id="prijs-artikel" name="prijs-artikel" type="number" placeholder="0" step=".01">
     </p>
-    <img id="flower" src="#" alt="Your image"><br>
+    <img id="flower" src="#" alt="Your image" class="img-responsive"><br>
 	<input type="submit" value="Upload Now">
 	</form>
     <br>
-    <a class="btn" href="shop.php">Return to Shop</a>
+    <a class='btn btn-success' href="shop.php">Return to Shop</a>
 
     <script>
         function readURL(input) {
