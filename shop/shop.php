@@ -114,8 +114,11 @@ if(isset($_GET["action"]))
         </header>
 
         <div class="container">
+        <input id="showBloemen" type="checkbox"> Show Bloemen
+        <br>
+        <input id="showBoeketen" type="checkbox"> Show Boeketen<br>
         <?php
-				$query = "SELECT * FROM artikel ";
+				$query = "SELECT * FROM artikel WHERE soort = '0'";
 				$result = mysqli_query($con, $query);
 				if(mysqli_num_rows($result) > 0)
 				{
@@ -127,44 +130,105 @@ if(isset($_GET["action"]))
                         $prijs = $row['prijs'];
                         $img = $row['img'];
 
-                        echo "<div class='col-md-4'>";
+                        echo "<div class='bloem' style='visibility: hidden; display: none;'>
+                        <div class='col-md-4'>";
 
                         if(isset($_SESSION['idmedewerker']))
                             { echo "
-                                <div style='border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;' align='center' class='edit'>
-                                <img src='../" . $img . "' class='img-responsive' /><br />
+                                
+                                    <div style='border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;' align='center' class='edit'>
+                                    <img src='../" . $img . "' class='img-responsive' /><br />
 
-                                <h4 class='text-info'>" . $naam ."</h4>
+                                    <h4 class='text-info'>" . $naam ."</h4>
 
-                                <h4 class='text-danger'>€ " . $prijs ."</h4>
+                                    <h4 class='text-danger'>€ " . $prijs ."</h4>
 
-                                <input type='text' name='quantity' value='1' class='form-control' />
+                                    <input type='text' name='quantity' value='1' class='form-control' />
 
-                                <input type='hidden' name='hidden_name' value='" . $naam ."' />
+                                    <input type='hidden' name='hidden_name' value='" . $naam ."' />
 
-                                <input type='hidden' name='hidden_price' value='" . $prijs ."' />
+                                    <input type='hidden' name='hidden_price' value='" . $prijs ."' />
 
-                                <a class='btn btn-success' href='artikel.php?editart=" . $id . "'>Edit</a>
-                                <a class='btn btn-success' href='delete.php?deleteid=" . $id . "'>Delete</a>";
+                                    <a class='btn btn-success' href='artikel.php?editart=" . $id . "'>Edit</a>
+                                    <a class='btn btn-success' href='delete.php?deleteid=" . $id . "'>Delete</a>";
 
-                            } else 
-                            { echo "<form method='post' action='shop.php?action=add&id=" . $id ."'>
-                                <div style='border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;' align='center'>
-                                <img src='../" . $img . "' class='img-responsive' /><br />
+                                } else 
+                                { echo "<form method='post' action='shop.php?action=add&id=" . $id ."'>
+                                    <div style='border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;' align='center'>
+                                    <img src='../" . $img . "' class='img-responsive' /><br />
 
-                                <h4 class='text-info'>" . $naam ."</h4>
+                                    <h4 class='text-info' >" . $naam ."</h4>
 
-                                <h4 class='text-danger'>€ " . $prijs ."</h4>
+                                    <h4 class='text-danger'>€ " . $prijs ."</h4>
 
-                                <input type='text' name='quantity' value='1' class='form-control' />
+                                    <input type='text' name='quantity' value='1' class='form-control' />
 
-                                <input type='hidden' name='hidden_name' value='" . $naam ."' />
+                                    <input type='hidden' name='hidden_name' value='" . $naam ."' />
 
-                                <input type='hidden' name='hidden_price' value='" . $prijs ."' />
+                                    <input type='hidden' name='hidden_price' value='" . $prijs ."' />
 
-                                <input type='submit' name='add_to_cart' style='margin-top:5px;' class='btn btn-success' value='Voeg toe' />";
-                            }
-                            echo "</div>
+                                    <input type='submit' name='add_to_cart' style='margin-top:5px;' class='btn btn-success' value='Voeg toe' />";
+                                }
+                                echo "</div>
+                                </div>
+                            </form>
+                        </div>";
+                    }
+                }
+
+                $query = "SELECT * FROM artikel WHERE soort = '1'";
+				$result = mysqli_query($con, $query);
+				if(mysqli_num_rows($result) > 0)
+				{
+					while($row = mysqli_fetch_array($result))
+					{
+                        $id = $row['idartikel'];
+                        $naam = $row['naam'];
+                        $omschrijving = $row['omschrijving'];
+                        $prijs = $row['prijs'];
+                        $img = $row['img'];
+
+                        echo "<div class='boeket' style='visibility: hidden; display: none;'>
+                        <div class='col-md-4'>";
+
+                        if(isset($_SESSION['idmedewerker']))
+                            { echo "
+                                
+                                    <div style='border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;' align='center' class='edit'>
+                                    <img src='../" . $img . "' class='img-responsive' /><br />
+
+                                    <h4 class='text-info'>" . $naam ."</h4>
+
+                                    <h4 class='text-danger'>€ " . $prijs ."</h4>
+
+                                    <input type='text' name='quantity' value='1' class='form-control' />
+
+                                    <input type='hidden' name='hidden_name' value='" . $naam ."' />
+
+                                    <input type='hidden' name='hidden_price' value='" . $prijs ."' />
+
+                                    <a class='btn btn-success' href='artikel.php?editart=" . $id . "'>Edit</a>
+                                    <a class='btn btn-success' href='delete.php?deleteid=" . $id . "'>Delete</a>";
+
+                                } else 
+                                { echo "<form method='post' action='shop.php?action=add&id=" . $id ."'>
+                                    <div style='border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;' align='center'>
+                                    <img src='../" . $img . "' class='img-responsive' /><br />
+
+                                    <h4 class='text-info' >" . $naam ."</h4>
+
+                                    <h4 class='text-danger'>€ " . $prijs ."</h4>
+
+                                    <input type='text' name='quantity' value='1' class='form-control' />
+
+                                    <input type='hidden' name='hidden_name' value='" . $naam ."' />
+
+                                    <input type='hidden' name='hidden_price' value='" . $prijs ."' />
+
+                                    <input type='submit' name='add_to_cart' style='margin-top:5px;' class='btn btn-success' value='Voeg toe' />";
+                                }
+                                echo "</div>
+                                </div>
                             </form>
                         </div>";
                     }
@@ -173,45 +237,50 @@ if(isset($_GET["action"]))
                 <div style="clear:both"></div>
                 <br />
                 <h3>Bestelling Details</h3>
-                <div class="table-responsive">
-                    <table class="table table-bordered">
-                        <tr>
-                            <th width="40%">Artikelen</th>
-                            <th width="10%">Hoeveelheid</th>
-                            <th width="20%">Prijs</th>
-                            <th width="15%">Totaal</th>
-                            <th width="5%">Verwijderen</th>
-                        </tr>
-                        <?php
-                        if(!empty($_SESSION["shopping_cart"]))
-                        {
-                            $total = 0;
-                            foreach($_SESSION["shopping_cart"] as $keys => $values)
+                <form action="factuur.php" method="post">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th width="40%">Artikelen</th>
+                                <th width="10%">Hoeveelheid</th>
+                                <th width="20%">Prijs</th>
+                                <th width="15%">Totaal</th>
+                                <th width="5%">Verwijderen</th>
+                            </tr>
+                            <?php
+                            if(!empty($_SESSION["shopping_cart"]))
                             {
-                        ?>
-                        <tr>
-                            <td><?php echo $values["item_name"]; ?></td>
-                            <td><?php echo $values["item_quantity"]; ?></td>
-                            <td>$ <?php echo $values["item_price"]; ?></td>
-                            <td>$ <?php echo number_format($values["item_quantity"] * $values["item_price"], 2);?></td>
-                            <td><a href="shop.php?action=delete&id=<?php echo $values["item_id"]; ?>"><span class="text-danger">Verwijderen</span></a></td>
-                        </tr>
-                        <?php
-                                $total = $total + ($values["item_quantity"] * $values["item_price"]);
+                                $total = 0;
+                                foreach($_SESSION["shopping_cart"] as $keys => $values)
+                                {
+                            ?>
+                            <tr>
+                                <td name='naam'><?php echo $values["item_name"]; ?></td>
+                                <td><?php echo $values["item_quantity"]; ?></td>
+                                <td>€ <?php echo $values["item_price"]; ?></td>
+                                <td>€ <?php echo number_format($values["item_quantity"] * $values["item_price"], 2);?></td>
+                                <td><a href="shop.php?action=delete&id=<?php echo $values["item_id"]; ?>"><span class="text-danger">Verwijderen</span></a></td>
+                            </tr>
+                            <?php
+                                    $total = $total + ($values["item_quantity"] * $values["item_price"]);
+                                }
+                            ?>
+                            <tr>
+                                <td colspan="3" align="right">Totaal</td>
+                                <td align="right">€ <?php echo number_format($total, 2); ?></td>
+                                <td>
+                                <!-- <button type="submit"><span class="text-danger">Factuur</span></button> -->
+                                </td>
+                            </tr>
+                            <?php
                             }
-                        ?>
-                        <tr>
-                            <td colspan="3" align="right">Total</td>
-                            <td align="right">€ <?php echo number_format($total, 2); ?></td>
-                            <td></td>
-                        </tr>
-                        <?php
-                        }
-                        ?>
-                            
-                    </table>
-                </div>
+                            ?>
+                                
+                        </table>
+                    </div>
+                </form>
             </div>
         </div>
+        <script src="../js/artikel.js"></script>
 </body>
 </html>

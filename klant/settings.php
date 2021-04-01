@@ -42,10 +42,9 @@ session_start();
         <div style="margin-left:15%;padding:1px 16px;height:1000px;">
 
             <!-- Introduction -->
-            <section class="intro" id="home">
-                <h1 class="section__title section__title--intro">
-                    Hi <strong><?php echo $user_data['klantvoornaam']; ?></strong>
-                </h1>
+            <section class="my-intro" id="intro">
+                <div class="services">
+                </div>
             </section>
 
             <!-- Change Username --> <!-- Change Password -->

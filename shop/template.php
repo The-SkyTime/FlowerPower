@@ -12,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     $naam_artikel = $_POST['naam-artikel'];
     $omschrijving_artikel = $_POST['omschrijving-artikel'];
     $prijs_artikel = $_POST['prijs-artikel'];
+    $soort = $_POST['soort'];
 
       //First, Validate the file name
       if(empty($_FILES['artikel']['name']))
@@ -48,12 +49,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     $dest=__DIR__.'../../img/'.$upload_file_name;
     if (move_uploaded_file($_FILES['artikel']['tmp_name'], $dest)) 
     {
-        echo 'Artikel Has Been Uploaded !';
+        if ($soort == "bloem") {
+            echo 'Artikel Has Been Uploaded !';
 
-        $query = "insert into artikel (naam, omschrijving, prijs, img) 
-			values ('$naam_artikel','$omschrijving_artikel','$prijs_artikel','$dest')";
+            $query = "insert into artikel (naam, omschrijving, prijs, img, soort) 
+                values ('$naam_artikel','$omschrijving_artikel','$prijs_artikel','$dest', '0')";
+    
+                mysqli_query($con, $query);
+        }
 
-			mysqli_query($con, $query);
+         else if ($soort == "boeket") {
+            echo 'Artikel Has Been Uploaded !';
+
+            $query = "insert into artikel (naam, omschrijving, prijs, img, soort) 
+                values ('$naam_artikel','$omschrijving_artikel','$prijs_artikel','$dest', '1')";
+    
+                mysqli_query($con, $query);
+        }
+        
     }
 
             
@@ -90,7 +103,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         <input id="prijs-artikel" name="prijs-artikel" type="number" placeholder="0" step=".01">
     </p>
     <img id="flower" src="#" alt="Your image" class="img-responsive"><br>
-	<input type="submit" value="Upload Now">
+        <select name="soort">
+			<option value="bloem" name="bloem">Bloem</option>
+			<option value="boeket" name="boeket">Boeket</option>
+		</select>
+        <br>
+        <br>
+	<input type="submit" class='btn btn-success' value="Upload Now">
 	</form>
     <br>
     <a class='btn btn-success' href="shop.php">Return to Shop</a>

@@ -54,10 +54,6 @@ body {
     padding: 5em 2em;
 }
 
-img {
-    display: block;
-    max-width: 100%;
-}
 
 strong { font-weight: var(--fw-bold) }
 
@@ -160,11 +156,13 @@ h3 { font-size: var(--fs-h3) }
 
   /*  Intro section  */
 
-.intro {
-    position: relative;
+  .my-intro {
+    background-color: var(--clr-dark);
     background-image: url(../img/bloemen.jpg);
     background-size: cover;
-    
+    /* background-blend-mode: multiply; */
+    color: var(--clr-light);
+    text-align: center;
 }
 
 .intro__img {
