@@ -24,6 +24,7 @@ session_start();
 			$_SESSION["shopping_cart"][$count] = $item_array;
 		}
 	}
+    
 	else
 	{
 		$item_array = array(
@@ -50,6 +51,8 @@ if(isset($_GET["action"]))
 		}
 	}
 }
+
+    
 ?>
 
 <!DOCTYPE html>
@@ -237,7 +240,7 @@ if(isset($_GET["action"]))
                 <div style="clear:both"></div>
                 <br />
                 <h3>Bestelling Details</h3>
-                <form action="factuur.php" method="post">
+                <form action="" method="post">
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <tr>
@@ -269,6 +272,7 @@ if(isset($_GET["action"]))
                                 <td colspan="3" align="right">Totaal</td>
                                 <td align="right">€ <?php echo number_format($total, 2); ?></td>
                                 <td>
+                                <input type="submit" name="factuur" value="Factuur">
                                 <!-- <button type="submit"><span class="text-danger">Factuur</span></button> -->
                                 </td>
                             </tr>

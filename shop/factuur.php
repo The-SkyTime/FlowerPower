@@ -1,12 +1,11 @@
-<?php
-    session_start();
+<html>
+    <body>
+        <?php
+            echo '<p align="center">Flower Power</br>
+            Begoniaweg 8. Almere 9585 MJ</br>
+                </br></p></br>';
 
-    
-        $naam = $_POST["item_name"];
-
-        $data = '';
-
-        $data .= '<h3 class="cBlue">' . $naam .'</h3>';
-    
-
-    ?>
+                echo $quantity;
+        ?>
+    </body>
+</html>

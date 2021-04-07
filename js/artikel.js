@@ -13,7 +13,7 @@ var bloem = document.getElementById('showBloemen').onclick = function() {
     }
 }
 
-document.getElementById('showBoeketen').onclick = function() {
+var boeket = document.getElementById('showBoeketen').onclick = function() {
     if(this.checked) {
         var alles = document.getElementsByClassName('boeket');
         for (i = 0; i < alles.length; i++) {

@@ -1,17 +1,29 @@
-document.getElementById('showKlant').onclick = function() {
+var klant = document.getElementById('showKlant').onclick = function() {
     if(this.checked) {
-        document.getElementById('klant').style= "visibility: visible;";
+        var alles = document.getElementsByClassName('klant');
+        for (i = 0; i < alles.length; i++) {
+            alles[i].style= "visibility: visible;";
+        }
     } else {
-        document.getElementById('klant').style= "visibility: hidden;";
-        document.getElementById('klant').style= "display: none;";
+        var alles = document.getElementsByClassName('klant');
+        for (i = 0; i < alles.length; i++) {
+            alles[i].style= "visibility: hidden;";
+            alles[i].style= "display: none;";
+        }
     }
 }
 
-document.getElementById('showMedewerker').onclick = function() {
+var medewerker = document.getElementById('showMedewerker').onclick = function() {
     if(this.checked) {
-        document.getElementById('medewerker').style= "visibility: visible;";
+        var alles = document.getElementsByClassName('medewerker');
+        for (i = 0; i < alles.length; i++) {
+            alles[i].style= "visibility: visible;";
+        }
     } else {
-        document.getElementById('medewerker').style= "visibility: hidden;";
-        document.getElementById('medewerker').style= "display: none;";
+        var alles = document.getElementsByClassName('medewerker');
+        for (i = 0; i < alles.length; i++) {
+            alles[i].style= "visibility: hidden;";
+            alles[i].style= "display: none;";
+        }
     }
 }

@@ -67,7 +67,7 @@ session_start();
                                     $klantachternaam = $row['klantachternaam'];
                                     $klantemail = $row['klantemail'];
                                     
-                                    echo "<tr id='klant' style='visibility: hidden; display: none;'><td>" . $klantvoornaam ." </td> <td>" . $klanttussenvoegsel ." </td> <td>" . $klantachternaam ." </td> <td>" . $klantemail ." </td> <td> <input type='checkbox'> </tr>";
+                                    echo "<tr class='klant' style='visibility: hidden; display: none;'><td>" . $klantvoornaam ." </td> <td>" . $klanttussenvoegsel ." </td> <td>" . $klantachternaam ." </td> <td>" . $klantemail ." </td> <td> <input type='checkbox'> </tr>";
                                 }
                             }
                             $selmedewerker = "SELECT * FROM medewerker ORDER BY idmedewerker ASC";
@@ -78,7 +78,7 @@ session_start();
                                 $medewerkerachternaam = $row['medewerkerachternaam'];
                                 $medewerkeremail = $row['medewerkeremail'];
                                 
-                                echo "<tr id='medewerker' style='visibility: hidden; display: none;'><td>" . $medewerkervoornaam ." </td> <td>" . $medewerkertussenvoegsel ." </td> <td>" . $medewerkerachternaam ." </td> <td>" . $medewerkeremail ." </td> <td> <input type='checkbox' checked> </tr>";
+                                echo "<tr class='medewerker' style='visibility: hidden; display: none;'><td>" . $medewerkervoornaam ." </td> <td>" . $medewerkertussenvoegsel ." </td> <td>" . $medewerkerachternaam ." </td> <td>" . $medewerkeremail ." </td> <td> <input type='checkbox' checked> </tr>";
                             }
                         ?>
                     </tr>

@@ -49,24 +49,27 @@ session_start();
             
             <!-- My services -->
             <section class="my-services" id="services">
-                <h2 class="section__title section__title--services">Bestellingen</h2>
+            <h1 class="section__title section__title--intro">
+                    Hallo <strong><?php echo $user_data['klantvoornaam'],' ', $user_data['klantachternaam']; ?></strong>
+                </h1>
+                <!-- <h2 class="section__title section__title--services">Bestellingen</h2>
                 <table>
                     <tr>
                         <tr><td>Voornaam</td><td>Tussenvoegsel</td><td>Achternaam</td><td>E-mail</td><td>Factuurnummer</td><td>Datum</td><td>Afgehaald</td><td>Medewerker</td></tr>
                         <?php
-                            $sel = "SELECT * FROM klant";
-                            $qrydisplay = mysqli_query($con, $sel);
-                            while($row = mysqli_fetch_array($qrydisplay)) {
-                                $voornaam = $row['klantvoornaam'];
-                                $tussenvoegsel = $row['klanttussenvoegsel'];
-                                $achternaam = $row['klantachternaam'];
-                                $email = $row['klantemail'];
+                            // $sel = "SELECT * FROM klant";
+                            // $qrydisplay = mysqli_query($con, $sel);
+                            // while($row = mysqli_fetch_array($qrydisplay)) {
+                            //     $voornaam = $row['klantvoornaam'];
+                            //     $tussenvoegsel = $row['klanttussenvoegsel'];
+                            //     $achternaam = $row['klantachternaam'];
+                            //     $email = $row['klantemail'];
                                 
-                                echo "<tr><td>" . $voornaam ." </td> <td>" . $tussenvoegsel ." </td> <td>" . $achternaam ." </td> <td>" . $email ." </td> </tr>";
-                            }
+                            //     echo "<tr><td>" . $voornaam ." </td> <td>" . $tussenvoegsel ." </td> <td>" . $achternaam ." </td> <td>" . $email ." </td> </tr>";
+                            // }
                         ?>
                     </tr>
-                </table>
+                </table> -->
             </section>
         </div>
 
