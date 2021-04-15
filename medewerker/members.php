@@ -5,6 +5,7 @@ session_start();
     include("../login/connection.php");
     include("../login/functions.php");
 
+    // Checkt of je bent ingelogd
     check_login($con);
     $user_data = check_login_medewerker($con);
 ?>
@@ -41,7 +42,7 @@ session_start();
         
         <div style="margin-left:15%;padding:1px 16px;height:1000px;">
 
-            <!-- Introduction -->
+            <!-- Plaatst een foto van bloemen -->
             <section class="my-intro" id="intro">
                 <div class="services">
                 </div>
@@ -56,6 +57,7 @@ session_start();
                         <tr><td>Voornaam</td><td>Tussenvoegsel</td><td>Achternaam</td><td>E-mail</td><td>Medewerker</td></tr>
                         <input id="showKlant" type="checkbox">Show Klanten<br><input id="showMedewerker" type="checkbox"> Show Medewerkers
                         <?php
+                            // Pakt alle data van klanten
                             $selklant = "SELECT * FROM klant ORDER BY idklant ASC";
                             $result = mysqli_query($con, $selklant);
                             if(mysqli_num_rows($result) > 0)
@@ -70,6 +72,7 @@ session_start();
                                     echo "<tr class='klant' style='visibility: hidden; display: none;'><td>" . $klantvoornaam ." </td> <td>" . $klanttussenvoegsel ." </td> <td>" . $klantachternaam ." </td> <td>" . $klantemail ." </td> <td> <input type='checkbox'> </tr>";
                                 }
                             }
+                            // Pakt alle data van medewerkers
                             $selmedewerker = "SELECT * FROM medewerker ORDER BY idmedewerker ASC";
                             $qrydisplay = mysqli_query($con, $selmedewerker);
                             while($row = mysqli_fetch_array($qrydisplay)) {

@@ -5,6 +5,7 @@ session_start();
     include("../login/connection.php");
     include("../login/functions.php");
 
+    // Checkt of je bent ingelogd
     check_login($con);
     $user_data = check_login_klant($con);
 ?>
@@ -40,7 +41,7 @@ session_start();
         
         <div style="margin-left:15%;padding:1px 16px;height:1000px;">
 
-            <!-- Introduction -->
+            <!-- Plaatst een foto van bloemen -->
             <section class="my-intro" id="intro">
                 <div class="services">
                 </div>
@@ -49,27 +50,10 @@ session_start();
             
             <!-- My services -->
             <section class="my-services" id="services">
-            <h1 class="section__title section__title--intro">
+                <h1 class="section__title section__title--intro">
+                    <!-- Stuurt de naam van de klant op de website -->
                     Hallo <strong><?php echo $user_data['klantvoornaam'],' ', $user_data['klantachternaam']; ?></strong>
                 </h1>
-                <!-- <h2 class="section__title section__title--services">Bestellingen</h2>
-                <table>
-                    <tr>
-                        <tr><td>Voornaam</td><td>Tussenvoegsel</td><td>Achternaam</td><td>E-mail</td><td>Factuurnummer</td><td>Datum</td><td>Afgehaald</td><td>Medewerker</td></tr>
-                        <?php
-                            // $sel = "SELECT * FROM klant";
-                            // $qrydisplay = mysqli_query($con, $sel);
-                            // while($row = mysqli_fetch_array($qrydisplay)) {
-                            //     $voornaam = $row['klantvoornaam'];
-                            //     $tussenvoegsel = $row['klanttussenvoegsel'];
-                            //     $achternaam = $row['klantachternaam'];
-                            //     $email = $row['klantemail'];
-                                
-                            //     echo "<tr><td>" . $voornaam ." </td> <td>" . $tussenvoegsel ." </td> <td>" . $achternaam ." </td> <td>" . $email ." </td> </tr>";
-                            // }
-                        ?>
-                    </tr>
-                </table> -->
             </section>
         </div>
 

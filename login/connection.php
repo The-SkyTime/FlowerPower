@@ -1,5 +1,5 @@
 <?php 
-
+// Maakt een connectie met de database
 $user = "root";
 $password = "";
 $dbname = "flowerpower";

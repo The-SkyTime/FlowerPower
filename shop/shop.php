@@ -76,6 +76,7 @@ if(isset($_GET["action"]))
 <body>
 <header>
         <?php
+        // Ingelogd als medewerker
             if(isset($_SESSION['idmedewerker']))
             {
                     echo 
@@ -90,7 +91,9 @@ if(isset($_GET["action"]))
                             <li class=''><a href='../login/logout.php' class='nav__link'>Logout</a></li>
                         </ul>
                     </nav>";
-                } else if(isset($_SESSION['idklant']))
+                } 
+                // Ingelogd als klant
+                else if(isset($_SESSION['idklant']))
 		        {
                     echo 
                     "<nav class='nav'>
@@ -103,6 +106,7 @@ if(isset($_GET["action"]))
                         </ul>
                     </nav>";
                 } else {
+                    // Niet ingelogd
                     echo 
                     "<nav class='nav'>
                         <ul class='nav__list'>
@@ -117,10 +121,11 @@ if(isset($_GET["action"]))
         </header>
 
         <div class="container">
-        <input id="showBloemen" type="checkbox"> Show Bloemen
-        <br>
-        <input id="showBoeketen" type="checkbox"> Show Boeketen<br>
-        <?php
+            <input id="showBloemen" type="checkbox"> Show Bloemen
+            <br>
+            <input id="showBoeketen" type="checkbox"> Show Boeketen<br>
+            <?php
+                // Pakt de bloemen uit de database en set het op de website
 				$query = "SELECT * FROM artikel WHERE soort = '0'";
 				$result = mysqli_query($con, $query);
 				if(mysqli_num_rows($result) > 0)
@@ -136,6 +141,7 @@ if(isset($_GET["action"]))
                         echo "<div class='bloem' style='visibility: hidden; display: none;'>
                         <div class='col-md-4'>";
 
+                        // Als je medewerker bent krijg je een Edit en Delete knop in plaats van een Voeg toe knop
                         if(isset($_SESSION['idmedewerker']))
                             { echo "
                                 
@@ -156,7 +162,9 @@ if(isset($_GET["action"]))
                                     <a class='btn btn-success' href='delete.php?deleteid=" . $id . "'>Delete</a>";
 
                                 } else 
-                                { echo "<form method='post' action='shop.php?action=add&id=" . $id ."'>
+                                { 
+                                    // Als je geen medewerker bent krijg je een Voeg toe knop
+                                    echo "<form method='post' action='shop.php?action=add&id=" . $id ."'>
                                     <div style='border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;' align='center'>
                                     <img src='../" . $img . "' class='img-responsive' /><br />
 
@@ -178,7 +186,7 @@ if(isset($_GET["action"]))
                         </div>";
                     }
                 }
-
+                    // Pakt de boeketen uit de database en set het op de website
                 $query = "SELECT * FROM artikel WHERE soort = '1'";
 				$result = mysqli_query($con, $query);
 				if(mysqli_num_rows($result) > 0)
@@ -193,7 +201,7 @@ if(isset($_GET["action"]))
 
                         echo "<div class='boeket' style='visibility: hidden; display: none;'>
                         <div class='col-md-4'>";
-
+                            // Als je medewerker bent krijg je een Edit en Delete knop in plaats van een Voeg toe knop
                         if(isset($_SESSION['idmedewerker']))
                             { echo "
                                 
@@ -214,7 +222,9 @@ if(isset($_GET["action"]))
                                     <a class='btn btn-success' href='delete.php?deleteid=" . $id . "'>Delete</a>";
 
                                 } else 
-                                { echo "<form method='post' action='shop.php?action=add&id=" . $id ."'>
+                                { 
+                                    // Als je geen medewerker bent krijg je een Voeg toe knop
+                                    echo "<form method='post' action='shop.php?action=add&id=" . $id ."'>
                                     <div style='border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;' align='center'>
                                     <img src='../" . $img . "' class='img-responsive' /><br />
 
@@ -239,6 +249,7 @@ if(isset($_GET["action"]))
                 ?>
                 <div style="clear:both"></div>
                 <br />
+                <!-- Create a shopping cart -->
                 <h3>Bestelling Details</h3>
                 <form action="" method="post">
                     <div class="table-responsive">
@@ -272,8 +283,6 @@ if(isset($_GET["action"]))
                                 <td colspan="3" align="right">Totaal</td>
                                 <td align="right">€ <?php echo number_format($total, 2); ?></td>
                                 <td>
-                                <input type="submit" name="factuur" value="Factuur">
-                                <!-- <button type="submit"><span class="text-danger">Factuur</span></button> -->
                                 </td>
                             </tr>
                             <?php

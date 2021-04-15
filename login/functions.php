@@ -1,6 +1,9 @@
 <?php
 
+// Checkt of je bent ingelogd
 function check_login($con) {
+
+	// Checkt of de login een klant is
 	function check_login_klant($con)
 	{
 	
@@ -25,6 +28,7 @@ function check_login($con) {
 	
 	}
 	
+	// Checkt of de login een medewerker is
 	function check_login_medewerker($con) {
 		if(isset($_SESSION['idmedewerker']))
 		{

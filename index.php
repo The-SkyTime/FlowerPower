@@ -29,6 +29,7 @@ session_start();
     <body>
         <header>
         <?php
+                // Ingelogd als medewerker
             if(isset($_SESSION['idmedewerker']))
             {
                     echo 
@@ -42,7 +43,9 @@ session_start();
                             <li class=''><a href='../login/logout.php' class='nav__link'>Logout</a></li>
                         </ul>
                     </nav>";
-                } else if(isset($_SESSION['idklant']))
+                } 
+                    // Ingelogd als klant
+                else if(isset($_SESSION['idklant']))
 		        {
                     echo 
                     "<nav class='nav'>
@@ -54,7 +57,9 @@ session_start();
                             <li class=''><a href='../login/logout.php' class='nav__link'>Logout</a></li>
                         </ul>
                     </nav>";
-                } else {
+                }
+                 // Niet ingelogd
+                else {
                     echo 
                     "<nav class='nav'>
                         <ul class='nav__list'>
@@ -111,41 +116,7 @@ session_start();
            </div>
            
            <img src="img/bloemen2.jpg" alt="Een mooie foto van bloemen" class="about-me__img">
-        </section>
-        
-        <!-- My Shop -->
-        <!-- <section class="my-work" id="work">
-            <h2 class="section__title section__title--work">Shop</h2>
-            <p class="section__subtitle section__subtitle--work">A selection of our items</p>
-            
-            <div class="portfolio"> -->
-                <!-- Artikel item 01 -->
-                <!-- <a href="#" class="portfolio__item">
-                    <img src="img/portfolio-01.jpg" alt="" class="portfolio__img">
-                </a> -->
-                
-                <!-- Artikel item 02 -->
-                <!-- <a href="#" class="portfolio__item">
-                    <img src="img/portfolio-02.jpg" alt="" class="portfolio__img">
-                </a> -->
-                
-                <!-- Artikel item 03 -->
-                <!-- <a href="#" class="portfolio__item">
-                    <img src="img/portfolio-03.jpg" alt="" class="portfolio__img">
-                </a> -->
-                
-                <!-- Artikel item 04 -->
-                <!-- <a href="#" class="portfolio__item">
-                    <img src="img/portfolio-04.jpg" alt="" class="portfolio__img">
-                </a> -->
-                
-                <!-- Artikel item 05 -->
-                <!-- <a href="#" class="portfolio__item">
-                    <img src="img/portfolio-05.jpg" alt="" class="portfolio__img">
-                </a>
-            </div>
-        </section> -->
-        
+        </section>        
         
         <!-- Footer -->
         <footer class="footer">

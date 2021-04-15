@@ -1,5 +1,5 @@
 <?php
-
+// Logd je uit
 session_start();
 
 if(isset($_SESSION['idklant']))

@@ -68,6 +68,7 @@ session_start();
 		<form method="post">
 			<div>Signup</div>
 
+			<!-- Schrijf je gegevens en slaat het op in de database -->
 			<input id="text" type="text" name="voornaam" placeholder="voornaam" required><br><br>
 			<input id="text" type="text" name="tussenvoegsel" placeholder="tussenvoegsel"><br><br>
 			<input id="text" type="text" name="achternaam" placeholder="achternaam" required><br><br>
@@ -79,6 +80,7 @@ session_start();
 			<input id="text" type="email" name="email" placeholder="email" required><br><br>
 			<input id="text" type="password" name="password" placeholder="password" required><br><br>
 
+			<!-- Kies of je een klant of een medewerker bent -->
 			<select name="account">
 				<option value="klant" name="klant">Klant</option>
 				<option value="medewerker" name="medewerker">Medewerker</option>

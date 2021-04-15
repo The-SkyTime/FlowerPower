@@ -5,6 +5,7 @@ session_start();
     include("../login/connection.php");
     include("../login/functions.php");
 
+    // Checkt of je bent ingelogd
     check_login($con);
     $user_data = check_login_klant($con);
 
@@ -41,7 +42,7 @@ session_start();
         
         <div style="margin-left:15%;padding:1px 16px;height:1000px;">
 
-            <!-- Introduction -->
+            <!-- Plaatst een foto van bloemen -->
             <section class="my-intro" id="intro">
                 <div class="services">
                 </div>
@@ -50,7 +51,8 @@ session_start();
             <!-- Change Username --> <!-- Change Password -->
             <?php
 
-                $sel = "SELECT * FROM `klant`";
+                // Pakt je gegevens van de database
+                $sel = "SELECT * FROM `klant` where idklant = $user_data[idklant]";
                 $qrydisplay = mysqli_query($con, $sel);
 
                 while($row = mysqli_fetch_array($qrydisplay)) {
@@ -66,6 +68,7 @@ session_start();
                     $email = $row['klantemail'];
                     $password = $row['klantpassword'];
 
+                    // Verander je Gegevens
                     echo "<section class='data-edit' id='edit'>
                             <form method='post' action='../changer/klant/userchanger.php?edit=" . $id . "'>
                                 <h2 class='section__title section__title--changer'>Uw gegevens </h2><br>
@@ -88,6 +91,7 @@ session_start();
                             </form>
                         </section>";
 
+                        // Verander je Wachtwoord
                         echo "<section class='data-edit' id='edit'>
                                 <form method='post' action='../changer/klant/passchanger.php?edit=" . $id . "'>
                                     <h2 class='section__title section__title--changer'>Uw wachtwoord</h2><br>

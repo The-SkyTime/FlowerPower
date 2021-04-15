@@ -22,6 +22,7 @@ session_start();
             $medewerker = "select * from medewerker where medewerkeremail = '$email' limit 1";
 			$medewerker_result = mysqli_query($con, $medewerker);
 
+			// Kijkt of je probeert in te loggen als een klant
 			if($klant_result)
 			{
 				if($klant_result && mysqli_num_rows($klant_result) > 0)
@@ -38,6 +39,7 @@ session_start();
 					}
 				}
 			}
+			// Kijkt of je probeert in te loggen als een medewerker
 			if ($medewerker_result) {
                 if($medewerker_result && mysqli_num_rows($medewerker_result) > 0)
 				{

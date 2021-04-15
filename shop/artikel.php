@@ -47,7 +47,7 @@ if(isset($_POST['updateart'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <title>Artike;</title>
+    <title>Artikel</title>
     <link rel="stylesheet" href="../css/shop.css">
 </head>
 <body>
