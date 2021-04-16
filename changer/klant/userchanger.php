@@ -7,6 +7,7 @@ session_start();
 
     $getid = $_GET['edit'];
 
+    // Pakt de gegevens uit de database
 $seledittwo = "SELECT * FROM `klant` WHERE $getid";
 $qry = mysqli_query($con, $seledittwo);
 
@@ -24,6 +25,7 @@ $telefoon = $sellassoc['klanttelefoon'];
 $email = $sellassoc['klantemail'];
 
 if(isset($_POST['updateedit'])) {
+    // Update de gegevens in de database
 
     $upid = $_POST['upid'];
     $upvoornaam = $_POST['upvoornaam'];
@@ -64,6 +66,7 @@ if(isset($_POST['updateedit'])) {
 		
 		<form method="POST" action="">
 			<div>Gegevens aanpassen</div>
+            <!-- Zet de nieuwe gegevens op -->
             <input id='text' type="text" name="upid" value="<?php echo $id; ?>" hidden>
             <input id='text' type="text" name="upvoornaam" value="<?php echo $voornaam; ?>"><br><br>
             <input id='text' type="text" name="uptussenvoegsel" value="<?php echo $tussenvoegsel; ?>"><br><br>

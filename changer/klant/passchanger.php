@@ -7,6 +7,7 @@ session_start();
 
     $getid = $_GET['edit'];
 
+    // Pakt de gegevens uit de database
 $seledittwo = "SELECT * FROM `klant` WHERE $getid";
 $qry = mysqli_query($con, $seledittwo);
 
@@ -21,6 +22,7 @@ if(isset($_POST['updateedit'])) {
     $uppassword2 = $_POST['uppassword2'];
 
     if($uppassword2 == $uppassword) {
+        // Update de gegevens in de database
         $seleditt = "UPDATE `klant` SET `klantpassword`='$uppassword' WHERE `idklant` = '$upid'";
         $qry = mysqli_query($con, $seleditt);
 
@@ -48,6 +50,7 @@ if(isset($_POST['updateedit'])) {
 	<div id="box">
 		
 		<form method="POST" action="">
+            <!-- Zet het nieuwe wachtwoord op -->
 			<div>Wachtwoord aanpassen</div>
             <input id='text' type="text" name="upid" value="<?php echo $id; ?>" hidden>
             <input id='text' type="text" name="uppassword" value="<?php echo "New Password"; ?>"><br><br>

@@ -1,3 +1,4 @@
+// Laat alle klanten zien als je op de knop drukt
 var klant = document.getElementById('showKlant').onclick = function() {
     if(this.checked) {
         var alles = document.getElementsByClassName('klant');
@@ -13,6 +14,7 @@ var klant = document.getElementById('showKlant').onclick = function() {
     }
 }
 
+// Laat alle medewerkers zien als je op de knop drukt
 var medewerker = document.getElementById('showMedewerker').onclick = function() {
     if(this.checked) {
         var alles = document.getElementsByClassName('medewerker');

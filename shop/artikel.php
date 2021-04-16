@@ -4,6 +4,7 @@ include("../login/connection.php");
 
 $getid = $_GET['editart'];
 
+// Pakt de gegevens uit de database
 $seledittwo = "SELECT * FROM `artikel` WHERE `idartikel` = '$getid' ";
 $qry = mysqli_query($con, $seledittwo);
 
@@ -15,7 +16,7 @@ $omschrijving = $sellassoc['omschrijving'];
 $prijs = $sellassoc['prijs'];
 $img = $sellassoc['img'];
 
-
+// Update de nieuwe gegevens in de databse
 if(isset($_POST['updateart'])) {
 
     $upid = $_POST['upid'];
@@ -52,6 +53,7 @@ if(isset($_POST['updateart'])) {
 </head>
 <body>
     <form method="POST" action="">
+        <!-- Plaatst de gegevens uit de datbase op de website -->
         <input id='text' type="text" name="upid" value="<?php echo $id; ?>" hidden>
         <p>
         <label for="artikel">Selecteer de foto die u bij het artikel wilt gebruiken: </label><br>
@@ -75,6 +77,7 @@ if(isset($_POST['updateart'])) {
     <br>
     <a class='btn btn-success' href="shop.php">Return to Shop</a>
     <script>
+        // Laat de foto zien op de website
         function readURL(input) {
             if(input.files && input.files[0]) {
                 var reader = new FileReader();

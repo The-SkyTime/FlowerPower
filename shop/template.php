@@ -85,7 +85,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     <link rel="stylesheet" href="../css/shop.css">
 </head>
 <body>
-<form action="template.php" method="post" enctype="multipart/form-data">
+    <!-- De template voor de artikelen -->
+    <form action="template.php" method="post" enctype="multipart/form-data">
 	<p>
 	<label for="artikel">Selecteer de foto die u bij het artikel wilt gebruiken: </label><br>
 	<input id="artikel" name="artikel" type="file">
@@ -115,6 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     <a class='btn btn-success' href="shop.php">Return to Shop</a>
 
     <script>
+        // Laat de foto zien op de website
         function readURL(input) {
             if(input.files && input.files[0]) {
                 var reader = new FileReader();

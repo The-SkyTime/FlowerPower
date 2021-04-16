@@ -1,3 +1,4 @@
+// Laat alle bloemen zien als je op de knop drukt
 var bloem = document.getElementById('showBloemen').onclick = function() {
     if(this.checked) {
         var alles = document.getElementsByClassName('bloem');
@@ -13,6 +14,7 @@ var bloem = document.getElementById('showBloemen').onclick = function() {
     }
 }
 
+// Laat alle boeketen zien als je op de knop drukt
 var boeket = document.getElementById('showBoeketen').onclick = function() {
     if(this.checked) {
         var alles = document.getElementsByClassName('boeket');
